@@ -3,6 +3,7 @@ const express = require("express");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+require("dotenv").config();
 
 // Server
 const app = express();
@@ -16,9 +17,6 @@ app.use(
     origin: "http://localhost:3000",
   })
 );
-
-// Database
-require("dotenv").config();
 
 // middleware
 app.use(morgan("dev"));
