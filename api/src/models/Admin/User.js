@@ -25,6 +25,9 @@ const userSchema = new Schema({
     ENUM: ["admin", "center"],
     default: "admin",
   },
+  status: {
+    type: Boolean,
+  },
   dni_cuil_cuit: {
     type: Number,
     required: true,
