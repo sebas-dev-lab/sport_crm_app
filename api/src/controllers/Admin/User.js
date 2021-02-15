@@ -17,17 +17,6 @@ exports.create_user = async (req, res) => {
     log,
   } = req.body;
 
-  console.log(
-    name,
-    user,
-    password,
-    type,
-    dni,
-    cuil_cuit,
-    admin_name_center,
-    last_name_admin
-  );
-
   // Imput data control
   if (
     !name ||
@@ -54,43 +43,28 @@ exports.create_user = async (req, res) => {
 
   // Find de contact data and add to user.
 
-  // Contact.findOne({ name_center: name }).then(async (contact) => {
-  //   // Contol data contact
-  //   if (!contact) return res.status(404).json({ msj: "No contact data" });
-
-  //   const user = new User(
-  //     name,
-  //     user,
-  //     password,
-  //     type,
-  //     dni,
-  //     cuil_cuit,
-  //     admin_name_center,
-  //     last_name_admin,
-  //     location,
-  //     status,
-  //     type,
-  //     contact
-  //   );
-  //   await user.save();
-  //   res.status(200).json({ msj: "ok", user: user });
-  // });
-  const userNew = new User({
-    name,
-    user,
-    password,
-    type,
-    dni,
-    cuil_cuit,
-    admin_name_center,
-    last_name_admin,
-    location,
-    status,
-    type,
+  Contact.findOne({ name_center: name }).then(async (contact) => {
+    // Contol data contact
+    if (!contact) return res.status(404).json({ msj: "No contact data" });
+    console.log(contact);
+    const new_user = new User({
+      name,
+      user,
+      password,
+      type,
+      dni,
+      cuil_cuit,
+      admin_name_center,
+      last_name_admin,
+      location,
+      status,
+      type,
+      contact: contact,
+    });
+    console.log(new_user);
+    await new_user.save();
+    res.status(200).json({ msj: "ok", user: new_user });
   });
-  console.log(userNew);
-  await userNew.save();
-  res.status(200).json({ msj: "ok", user: userNew });
 };
 
 // ** # Get all Users #

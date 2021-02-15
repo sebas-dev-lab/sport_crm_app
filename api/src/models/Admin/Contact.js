@@ -24,7 +24,6 @@ const contactSchema = new Schema({
   },
   phone_2: {
     type: Number,
-    required: false,
   },
   email_1: {
     type: String,
@@ -32,23 +31,18 @@ const contactSchema = new Schema({
   },
   email_2: {
     type: String,
-    required: false,
   },
   facebook: {
     type: String,
-    required: true,
   },
   instagram: {
     type: String,
-    required: true,
   },
   twiter: {
     type: String,
-    required: false,
   },
   linkedin: {
     type: String,
-    required: false,
   },
 });
 
