@@ -1,6 +1,7 @@
 const { Schema, model, connection } = require("mongoose");
 var autoincrement = require("mongoose-auto-increment");
 autoincrement.initialize(connection);
+const findOrCreate = require("mongoose-findorcreate");
 
 const serviceSchema = new Schema({
   code: {
@@ -33,12 +34,12 @@ const serviceSchema = new Schema({
     required: false,
   },
   reviews: {
-    type: Schema.Types.ObjectId,
+    type: [Schema.Types.ObjectId],
     ref: "Reviews",
   },
 });
 
-serviceSchema.plugin(require("mongoose.autopopulate"));
+serviceSchema.plugin(require("mongoose-autopopulate"));
 serviceSchema.plugin(autoincrement.plugin, {
   model: "Service",
   field: "code",

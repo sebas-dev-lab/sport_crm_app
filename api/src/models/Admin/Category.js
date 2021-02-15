@@ -1,6 +1,7 @@
 const { Schema, model, connection } = require("mongoose");
 var autoincrement = require("mongoose-auto-increment");
 autoincrement.initialize(connection);
+const findOrCreate = require("mongoose-findorcreate");
 
 const categorySchema = new Schema({
   code: {

@@ -1,7 +1,7 @@
 const { Schema, model, connection } = require("mongoose");
 var autoincrement = require("mongoose-auto-increment");
-const { default: mongooseAutoPopulate } = require("mongoose-autopopulate");
 autoincrement.initialize(connection);
+const findOrCreate = require("mongoose-findorcreate");
 
 const reviewSchema = new Schema({
   code: {
@@ -9,11 +9,15 @@ const reviewSchema = new Schema({
     default: 0,
     unique: true,
   },
+  service: {
+    type: String,
+    required: true,
+  },
   review: {
     type: String,
     required: true,
   },
-  client_code: {
+  client: {
     type: Schema.Types.ObjectId,
     ref: "User",
   },
