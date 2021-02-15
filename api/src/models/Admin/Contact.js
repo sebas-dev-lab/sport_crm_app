@@ -9,6 +9,10 @@ const contactSchema = new Schema({
     defautl: 0,
     unique: true,
   },
+  name_center: {
+    type: String,
+    required: true,
+  },
   address: {
     type: String,
     required: true,

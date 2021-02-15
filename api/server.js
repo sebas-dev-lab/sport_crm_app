@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 require("dotenv").config();
+const ad_routes = require("./src/routes/Admin/index");
 
 // Server
 const app = express();
@@ -25,5 +26,6 @@ app.use(bodyParser.json({ limit: "50mb" }));
 app.use(express.json());
 
 // Routes
+app.use("/", ad_routes);
 
 module.exports = app;

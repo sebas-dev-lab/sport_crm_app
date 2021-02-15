@@ -28,7 +28,11 @@ const userSchema = new Schema({
   status: {
     type: Boolean,
   },
-  dni_cuil_cuit: {
+  dni: {
+    type: Number,
+    required: true,
+  },
+  cuil_cuit: {
     type: Number,
     required: true,
   },
