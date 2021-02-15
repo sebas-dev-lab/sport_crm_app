@@ -11,13 +11,7 @@ const app = express();
 app.set("port", process.env.PORT || 3001);
 
 // Settings
-app.use(
-  cors({
-    credentials: true,
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    origin: "http://localhost:3000",
-  })
-);
+app.use(cors());
 
 // middleware
 app.use(morgan("dev"));
