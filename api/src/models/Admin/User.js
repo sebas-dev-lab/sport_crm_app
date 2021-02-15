@@ -1,7 +1,8 @@
-const { Schema, model } = require("mongooes");
+const { Schema, model } = require("mongoose");
 const mongoose = require("mongoose");
 var autoIncrement = require("mongoose-auto-increment"); //no modificar
 autoIncrement.initialize(mongoose.connection);
+const findOrCreate = require("mongoose-findorcreate");
 
 const userSchema = new Schema({
   code: {
@@ -22,6 +23,7 @@ const userSchema = new Schema({
     required: true,
   },
   type: {
+    type: String,
     ENUM: ["admin", "center"],
     default: "admin",
   },
@@ -47,6 +49,7 @@ const userSchema = new Schema({
   contact: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Contact",
+    autopopulate: true,
   },
   location: {
     type: [Number],

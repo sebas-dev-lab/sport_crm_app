@@ -2,6 +2,7 @@ const { Schema, model } = require("mongoose");
 const mongoose = require("mongoose");
 var autoIncrement = require("mongoose-auto-increment");
 autoIncrement.initialize(mongoose.connection);
+const findOrCreate = require("mongoose-findorcreate");
 
 const contactSchema = new Schema({
   code: {
@@ -51,7 +52,7 @@ const contactSchema = new Schema({
   },
 });
 
-contactSchema.plugin(required("mongoose-autopopulate"));
+contactSchema.plugin(require("mongoose-autopopulate"));
 contactSchema.plugin(autoIncrement.plugin, {
   model: "Contact",
   field: "code",
@@ -59,7 +60,7 @@ contactSchema.plugin(autoIncrement.plugin, {
   incrementBy: 1,
 });
 
-userSchema.plugin(findOrCreate);
-const Contact = model("Contact", userContact);
+contactSchema.plugin(findOrCreate);
+const Contact = model("Contact", contactSchema);
 
 module.exports = Contact;
