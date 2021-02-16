@@ -50,7 +50,6 @@ exports.delete_category = (req, res) => {
   const { code } = req.params;
   Category.findOneAndDelete({ code: code }).then((cat) => {
     Category.findOne({ code: code }).then((control) => {
-      console.log(control);
       if (control) {
         return res.status(400).json({ msj: "Category could not be deleted" });
       }
