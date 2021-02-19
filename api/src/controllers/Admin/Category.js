@@ -45,6 +45,7 @@ exports.put_category = async (req, res) => {
     return res.status(400).json({ msj: "Category can not be modified" });
   }
 };
+
 // ** # Delete category #
 exports.delete_category = (req, res) => {
   const { code } = req.params;

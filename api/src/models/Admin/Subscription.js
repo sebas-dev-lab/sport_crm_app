@@ -1,6 +1,7 @@
 const { Schema, model, connection } = require("mongoose");
 var autoincrement = require("mongoose-auto-increment");
 autoincrement.initialize(connection);
+const findOrCreate = require("mongoose-findorcreate");
 
 const subscriptionSchema = new Schema({
   code: {
@@ -8,8 +9,12 @@ const subscriptionSchema = new Schema({
     default: 0,
     unique: true,
   },
+  title: {
+    type: String,
+    require: true,
+  },
   date: {
-    type: Date,
+    type: String,
   },
   status: {
     type: Boolean,
@@ -29,15 +34,15 @@ const subscriptionSchema = new Schema({
   },
 });
 
-userSchema.plugin(require("mongoose-autopopulate"));
-userSchema.plugin(autoincrement.plugin, {
+subscriptionSchema.plugin(require("mongoose-autopopulate"));
+subscriptionSchema.plugin(autoincrement.plugin, {
   model: "Subscription",
   field: "code",
   satartAt: 1,
   incrementBy: 1,
 });
 
-userSchema.plugin(findOrCreate);
+subscriptionSchema.plugin(findOrCreate);
 const Subscription = model("Subscription", subscriptionSchema);
 
 module.exports = Subscription;

@@ -1,11 +1,14 @@
 // Require Express
 const express = require("express");
+
 // Import Routes
 const user_routes = require("./User");
 const contact_routes = require("./Contact");
 const service_routes = require("./Services");
 const category_routes = require("./Category");
 const review_routes = require("./Reviews");
+const suscription_routes = require("./Subscriptions");
+
 // Require Router
 const route = express.Router();
 
@@ -14,5 +17,6 @@ route.use("/contact", contact_routes);
 route.use("/service", service_routes);
 route.use("/category", category_routes);
 route.use("/reviews", review_routes);
+route.use("/suscription", suscription_routes);
 
 module.exports = route;

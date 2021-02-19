@@ -34,6 +34,7 @@ exports.post_service = (req, res) => {
     });
   });
 };
+
 // ** # Get all Services
 exports.get_all_services = async (req, res) => {
   const services = await Service.find();
@@ -52,6 +53,7 @@ exports.get_service_code = (req, res) => {
     return res.status(200).json({ msj: "ok", service: service });
   });
 };
+
 // ** # Put Service: need "code for find service and can control" #
 exports.put_service = async (req, res) => {
   const {
