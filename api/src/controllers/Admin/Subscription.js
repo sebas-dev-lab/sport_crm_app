@@ -62,9 +62,10 @@ exports.put_suscription = async (req, res) => {
   const { code } = req.params;
   const { title, description, status, date } = req.body;
 
-  //   if (!title || !description || !status) {
-  //     return res.status(400).json({ msj: "Data is required" });
-  //   }
+  if (!title || !description || !status) {
+    return res.status(400).json({ msj: "Data is required" });
+  }
+
   const _old_susc = await Suscription.findOne({ code: code });
   if (!_old_susc) {
     return res.status(400).json({ msj: "Could no found suscription service" });
