@@ -1,5 +1,7 @@
+import UserPanel from "./Components/Admin/Users/Default";
+
 function App() {
-  return "hola";
+  return <UserPanel />;
 }
 
 export default App;

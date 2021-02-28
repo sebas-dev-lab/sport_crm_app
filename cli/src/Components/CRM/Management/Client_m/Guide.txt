@@ -1,0 +1,10 @@
+Guia Administración de clientes
+
+> Client_form: Agregar nuevos usuarios. Gestionar pagos. Gestionar hisotrial clínico y de hábitos. Generador de código QR
+> Client_list: Listar usuarios. Filtrar usuarios por: cuotas vencidas, cuotas al día, profesional a cargo, por horario de actividad, por actividad. Puede ingresar a perfil de cliente. Eliminar cliente. 
+> Client_profile (modulo principal de cliente "clients"). Reutilizar codigo. Ver el resumen del perfil del cliente. Modificar datos, acceder al panel de pagos (gestión de pagos). Hisotrial clinico. Hisotrial de asistencias. Historial de habitos. 
+> Client_Search: Sección de búsqueda de clientes por nombre y apellido, codigo de registro. Codigo reutilizable.
+> Health_history: Formulario historial clínico. Resumen de historial clínico. Certificado médico.
+> Habits_history: Formulario historial de hábitos. Resumen de hisotrial de hábitos
+> Resume: Analisis de datos de clientes: numero de clientes, cumplimiento de asistencia. Numero de deserción por mes. Datos de deudores. Datos de clientes con pagos al día. Numero de clientes que abonan en efectivo y en débito. Clientes que deben certificado médico. Clientes que adeudan completar historial clínico y de hábitos. 
+
